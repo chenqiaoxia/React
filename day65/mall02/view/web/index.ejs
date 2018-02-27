@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商城首页</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="../css/web_index.css">
+	<style type="text/css">
+		.login-area{
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<a href="/order?act=desc">降序</a>
+		<a href="/order?act=asc">升序</a>
+		<p id="username"></p>
+		<div class="login-area">
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm">用户</button>
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+			  <div class="modal-dialog modal-sm" role="document">
+			    <div class="modal-content">
+			    	<div class="box">
+			    		<input type="text" id="account" value="手机号/邮箱/用户名">
+			    		<input type="password" id="pwd">
+			    		<button id="login">登录</button>
+			    	</div>	
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-sm-2 col-xs-2 left_slide">
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10 right_content">
+				<ul>
+					<% for(var i=0;i<goods.length;i++){ %>
+						<li class="good_item">
+							<img class="big_icon" src="./uploads/<%= goods[i].imgsrc %>" alt="">
+							<ul style="width:100%;">
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/592694e3Nda6f85d6.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/5919637aN271a1301.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/59269427N60666d2c.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/59269491N157e1f43.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/592694e3Nda6f85d6.jpg" style="width:100%;" alt="">
+								</li>
+							</ul>
+							<p class="price">¥<%= goods[i].price %></p>
+							<h5 class="title"><%= goods[i].title %></h5>
+							<p class="comment">已有<%= goods[i].comment_num %>评价</p>
+						</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#login").on("click",function(){
+				$.ajax({
+					url:"/user/login",
+					type: 'POST',
+					data:{
+						account:$("#account").val(),
+						pwd:$("#pwd").val()
+					},
+					success:function(res){
+						console.log(res);
+						var account = res.account;
+						$('#username').html(account);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

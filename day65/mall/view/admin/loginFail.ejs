@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录异常</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src='../lib/jquery/jquery.js'></script>
+	<style type="text/css">
+		.wrap{
+			width: 500px;
+			margin: 100px auto;
+			border: 2px solid gray;
+			border-radius: 20px;
+			height: 300px;
+			padding: 20px;
+		}
+		a{
+			display: block;
+			text-decoration: none;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+	  <h2><%= state.value %></h2>
+	  <p><a href="/admin/login">返回到登录页面</a></p>
+	  <p id="left-time">还有3秒返回登录页面</p>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			var leftTime = 3;
+			var time = setInterval(function(){
+				leftTime--;
+				$('#left-time').html('还有'+leftTime+'秒返回登录页面');
+				if(leftTime == 0){
+					clearInterval(time);
+					window.location = '/admin/login';
+				}
+			},1000);
+		});
+	</script>
+</body>
+</html>

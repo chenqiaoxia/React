@@ -1,0 +1,9 @@
+<view class='container'>
+  <view class='good_item' wx:for="{{datas}}" bindtap='showDetail' data-id="{{item.id}}">
+    <image src='http://127.0.0.1:8080/uploads/{{item.imgsrc}}'></image>
+    <view>
+      <text>{{item.title}}</text>
+      <text>{{item.price}}</text>
+    </view>
+  </view>
+</view>

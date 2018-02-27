@@ -1,0 +1,3 @@
+<view>
+  <text>{{num}}</text>
+</view>

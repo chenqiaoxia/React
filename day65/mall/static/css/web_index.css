@@ -1,0 +1,52 @@
+*{margin: 0;padding: 0;}
+.wrap{
+	margin:0 auto;
+}
+@media (min-width: 1411px){
+	.wrap {
+    	width: 1390px;
+	}
+}
+ul{
+	list-style: none;
+}
+.left_slide{
+	height: 1000px;
+	background-color:red;
+}
+.right_content{
+	height: 1000px;
+}
+.right_content ul{
+	width: 100%;
+}
+.good_item{
+	float: left;
+	width: 19%;
+	margin-right: 5px; 
+	margin-bottom: 5px;
+	border: 1px solid #fff;
+}
+.good_item:hover{
+	border: 1px solid #ddd;
+}
+.good_item .big_icon{
+	width: 100%;
+	margin-bottom: 2px;
+}
+.good_item .price{
+	color:red;
+	font-size: 20px;
+	font-weight: bolder;
+}
+.good_item .title{
+	font-size: 12px;
+	margin: 0;
+}
+.good_item .small_item{
+	float: left;
+	border: 1px solid gray;
+}
+.good_item .small_item:hover{
+	border: 1px solid red;
+};

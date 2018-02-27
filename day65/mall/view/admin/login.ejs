@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+	<div class="wrap">
+		<h3 class='title'>登录页面</h3>
+		<form action='/admin/login' method='post'>
+		  <div class="form-group">
+		    <label class='pull-left' for="exampleInputEmail1">Email address</label>
+		    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="输入账号" name="accout">
+		  </div>
+		  <div class="form-group">
+		    <label class='pull-left' for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="输入密码" name="pwd">
+		  </div>
+		  <button type="submit" class="btn btn-default btn-lg">登录</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+  <style type="text/css">
+    .container{
+      width: 600px;
+    }
+    .margin-top-200{
+      margin-top: 200px;
+    }
+    #myTabs{
+      margin-bottom: 20px;
+    }
+    .list_item{
+      width: 40%;
+      text-align: center;
+    }
+    #myTabs .active a{
+      color: red ;
+      font-family: bolder;
+      font-size: 20px;
+    }
+     #myTabs a{
+      font-size: 15px;
+     }
+  </style>
+</head>
+<body>
+	<div class="container">
+    <div class="bs-example bs-example-tabs margin-top-200" data-example-id="togglable-tabs">
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active list_item"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">登录</a></li>
+      <li role="presentation" class=" list_item"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">注册</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+          <form action="/user/login" method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">用户名</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="手机号/邮箱/用户名" name="account">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">密码</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+            </div>
+            <button type="submit" class="btn btn-default">登录</button>
+            <a type="submit" href="/" class="btn btn-danger">取消</a>
+          </form>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+          <form action="/user/regist" method="post">
+              <div class="form-group">
+                <label for="exampleInputEmail1">用户名</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="手机号/邮箱/用户名" name="account">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">验证密码</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="confirm_pwd">
+              </div>
+              <button type="submit" class="btn btn-default">注册</button>
+              <a type="submit" href="/" class="btn btn-danger">取消</a>
+          </form>
+      </div>
+    </div>
+  </div> 
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商城首页</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../css/web_index.css">
+	<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<a href="/order?act=desc">降序</a>
+		<a href="/order?act=asc">升序</a>
+		<a href="/user">用户中心</a>
+		<a href="/shopcart">购物车</a>
+		<div class="row">
+			<div class="col-md-2 col-sm-2 col-xs-2 left_slide">
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10 right_content">
+				<ul>
+					<% for(var i=0;i<goods.length;i++){ %>
+						<li class="good_item" data-id="<%= goods[i].id %>">
+							<img class="big_icon" src="./uploads/<%= goods[i].imgsrc %>" alt="">
+							<ul style="width:100%;">
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/592694e3Nda6f85d6.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/5919637aN271a1301.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/59269427N60666d2c.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/59269491N157e1f43.jpg" style="width:100%;" alt="">
+								</li>
+								<li class="small_item"  style="width:20%;">
+									<img src="./uploads/592694e3Nda6f85d6.jpg" style="width:100%;" alt="">
+								</li>
+							</ul>
+							<p class="price">¥<%= goods[i].price %></p>
+							<h5 class="title"><%= goods[i].title %></h5>
+							<p class="comment">已有<%= goods[i].comment_num %>评价</p>
+						</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.good_item').on('click',function(){
+			// 用户id的值
+			console.log(typeof document.cookie);
+			var index = document.cookie.indexOf('=');
+			var userId = document.cookie.substr(index+1);
+			// var userId = document.cookie;
+			console.log(document.cookie);
+			// 被点击到的那个商品的id值
+			var goodId = $(this).attr('data-id');
+			$.ajax({
+				url:'/addcart',
+				data:{
+					userId:userId,
+					goodId:goodId
+				},
+				type: 'POST',
+				success:function(res){
+					console.log(res);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

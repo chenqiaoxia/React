@@ -1,0 +1,10 @@
+.good_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 2rpx solid gray;
+}
+.good_item image{
+  width: 200rpx;
+  height: 200rpx;
+}
